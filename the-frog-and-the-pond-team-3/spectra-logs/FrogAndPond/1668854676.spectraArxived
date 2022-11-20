@@ -1,0 +1,30 @@
+import "./imports/DwyerPatterns.spectra"
+
+spec FrogAndPond
+
+define DX := 7;
+define DY := 7;
+type DimX = Int(0..DX);
+type DimY = Int(0..DY);
+
+env DimX freePoint1X;
+env DimY freePoint1Y;
+env DimX freePoint2X;
+env DimY freePoint2Y;
+ 
+sys DimX frogX;
+sys DimY frogY;
+
+sys boolean carsMove;
+
+
+counter frogCounter(0..3){
+	frogCounter = 0;
+	inc: !carsMove;
+	reset: carsMove;
+	overflow: keep; 
+}
+
+
+gar fdfgfdf:
+  alw frogCounter < 3 implies !carsMove; 
